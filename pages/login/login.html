@@ -1,0 +1,36 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Login</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content padding text-center>
+        <img style="width: auto; margin: auto; padding-bottom: 40px; display: block; width: 60%" src='assets/img/logo.png' />
+    <ion-card>
+        <form [formGroup]="loginForm" style="" novalidate padding>
+            <ion-list>
+                <ion-item>
+                    <ion-label floating>Email Address</ion-label>
+                    <ion-input formControlName="email" type="text"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label floating>Password</ion-label>
+                    <ion-input formControlName="password" type="password"></ion-input>
+                </ion-item>
+            </ion-list>
+            <br>
+            <button (click)="login()" style="background: #1786d9;" ion-button class="button-login" block color="dark">Submit</button>
+            <br>
+            <div style="">
+                <ion-note style="float: left">
+                    <a (click)="forgotpass()" style="text-transform: initial;" ion-button clear>Forgot Password </a>
+                </ion-note>
+                <ion-note style="float: right">
+                    <a (click)="register()" style="text-transform: initial;" ion-button clear>Register</a>
+                </ion-note>
+            </div>
+        </form>
+    </ion-card>
+</ion-content>

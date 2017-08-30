@@ -1,0 +1,32 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Personal Information</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content text-center padding>
+    <ion-card>
+        <form [formGroup]="personalInformationForm" style="" novalidate padding>
+            <ion-list>
+                <ion-item>
+                    <ion-label floating>Email</ion-label>
+                    <ion-input formControlName="email" type="text"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label floating>First Name</ion-label>
+                    <ion-input formControlName="firstName" type="text"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label floating>Last Name</ion-label>
+                    <ion-input formControlName="lastName" type="text"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label floating>Phone Number (e.g. +16131231234)</ion-label>
+                    <ion-input formControlName="phone" type="text"></ion-input>
+                </ion-item>
+            </ion-list>
+            <br>
+            <button style="background: #1786d9;" ion-button class="button-login" (click)="submit()" block color="dark">Update Information</button>
+            <br>
+        </form>
+    </ion-card>
+</ion-content>

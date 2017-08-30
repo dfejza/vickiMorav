@@ -1,0 +1,33 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Register</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content text-center padding>
+  
+    <ion-card>
+        <form [formGroup]="loginForm" style="" novalidate padding>
+            <ion-list>
+                <ion-item>
+                    <ion-label floating>First Name</ion-label>
+                    <ion-input formControlName="firstName" type="text"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label floating>Last Name</ion-label>
+                    <ion-input formControlName="lastName" type="text"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label floating>Email Address</ion-label>
+                    <ion-input formControlName="email" type="text"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label floating>Password</ion-label>
+                    <ion-input  formControlName="password" type="password"></ion-input>
+                </ion-item>
+            </ion-list>
+            <br>
+            <button style="background: #1786d9;" ion-button class="button-login" (click)="submit()" block color="dark">Submit</button>
+            <br>
+        </form>
+    </ion-card>
+</ion-content>

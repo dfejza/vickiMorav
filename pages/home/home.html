@@ -1,0 +1,53 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <img src='assets/img/logo1.png' style="height: 20px" />
+        <ion-buttons end royal>
+            <button (click)="openCart()" ion-button icon-only>
+<!--                 <ion-badge>3</ion-badge> -->
+                <ion-icon name="cart"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+    <!-- <ion-navbar>
+        <ion-row style="padding: 0px;">
+            <ion-col col-4>
+                <button style="" ion-button (click)="openMenu()">Categories ∇</button>
+            </ion-col>
+            <ion-col col-8>
+                <ion-searchbar style="" (ionInput)="getItems($event)"></ion-searchbar>
+            </ion-col>
+        </ion-row>
+    </ion-navbar> -->
+</ion-header>
+<ion-content>
+
+    <div *ngIf="this.searchResults.length==0">
+        <!-- take data from component carousel. -->
+        <carousel></carousel> 
+        <hr>
+    </div>
+        <ion-searchbar style="width:95%; min-height: 40px;margin: auto; background:white; height:50px" (ionInput)="getItems($event)"></ion-searchbar>
+    <div *ngIf="this.searchResults.length==0">
+        <!-- take data from component deals. -->
+        <deals ></deals>
+    </div>
+    <div *ngIf="this.searchResults.length>0">
+        <ion-row>
+            <ion-col col-6 [ngClass]="animateClass" *ngFor=" let item of searchResults; let i=index " (click)="openProduct(item)">
+                <ion-card style="margin: 0px 0px 0px 0px;     border: 1px solid #e4e4e4;">
+                    <img style="height: 130px;    padding: 5px 5px 0px 5px;width: auto;margin: 0 auto;" src='{{item.img}}' />
+                    <div style="word-wrap:break-word;text-align: justify;padding: 4%;font-size: 14px;color: #656565;height: 60px;overflow: none">
+                        {{item.name}}
+                    </div>
+                    <div style="text-overflow: ellipsis;overflow: hidden;white-space: nowrap;padding: 4%;font-size: 14px;    background: rgba(41, 71, 119, 0.17);color: #656565;  ">
+                        <span style="float: left">${{item.variants[0].price}}</span>
+                    </div>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+    </div>
+
+</ion-content>

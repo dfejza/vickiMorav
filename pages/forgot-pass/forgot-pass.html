@@ -1,0 +1,26 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Forgot Password</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content text-center padding style="background-size: cover; background-image: url(assets/img/back.jpg);">
+    <p style="margin-top: -10px;margin-bottom: 0px;">
+        <img style="width: auto; margin: auto; padding-bottom: 40px; display: block; width: 60%" src='assets/img/logo.png' />
+    </p>
+    <ion-card>
+        <form [formGroup]="loginForm" style="" novalidate padding>
+            <ion-list>
+                <ion-item>
+                    <ion-label floating>Email Address</ion-label>
+                    <ion-input formControlName="email" type="text"></ion-input>
+                </ion-item>
+            </ion-list>
+            <br>
+            <button (click)="submit()" style="    background: #1786d9;" ion-button class="button-login" block color="dark">Submit</button>
+            <br>
+        </form>
+    </ion-card>
+
+
+    <p style="color:#ccc">{{text}}</p>
+</ion-content>

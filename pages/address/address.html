@@ -1,0 +1,53 @@
+<ion-header>
+        <ion-navbar>
+            <ion-title>Address Book</ion-title>
+        </ion-navbar>
+    </ion-header>
+    <ion-content text-center padding>
+        <ion-card>
+            <form [formGroup]="addressForm" style="" novalidate padding>
+                <ion-list>
+                <ion-item>
+                        <ion-label floating>Recipient First Name</ion-label>
+                        <ion-input formControlName="firstName" type="text"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label floating>Recipient Last Name</ion-label>
+                        <ion-input formControlName="lastName" type="text"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label floating>Address1</ion-label>
+                        <ion-input formControlName="address1" type="text"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label floating>Address2</ion-label>
+                        <ion-input formControlName="address2" type="text"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label floating>City</ion-label>
+                        <ion-input formControlName="city" type="text"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label floating>Zip Code</ion-label>
+                        <ion-input formControlName="zip" type="text"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                    <ion-label floating>State or Province(i.e. New York)</ion-label>
+                        <ion-input formControlName="province" type="text"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label floating>Country</ion-label>
+                        <ion-input formControlName="country" type="text"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label floating>Company</ion-label>
+                        <ion-input formControlName="company" type="text"></ion-input>
+                    </ion-item>
+                </ion-list>
+                <br>
+                <button style="background: #1786d9;" ion-button class="button-login" (click)="submit()" block color="dark">Update Information</button>
+                <br>
+            </form>
+        </ion-card>
+    </ion-content>
+    

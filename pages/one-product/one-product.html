@@ -1,0 +1,71 @@
+<ion-header style="background: #000">
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Product Details</ion-title>
+        <ion-buttons end royal>
+            <button (click)="openCart()" ion-button icon-only>
+<!--                 <ion-badge>3</ion-badge> -->
+                <ion-icon class="pulse" name="cart"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+<ion-content [@flyInTopSlow]="0">
+    <div style="margin-top: 0px;color: #515151;padding: 10px;word-wrap: break-word;background:#fff;border-bottom:1px solid #37a8e4;text-align: center;font-size: 15px;">
+        {{item.name}}
+    </div>
+    <ion-card style="margin-bottom: 10px;box-shadow: none">
+        <ion-row style="background:#fff;color: #b7b7b7;">
+            <ion-col width-100>
+                <img src={{image}} imageViewer />
+            </ion-col>
+        </ion-row>
+    </ion-card>
+    <ion-list>
+        <ion-item style="background-color: #fff;border-top: 0px solid #ccc;height: 25px;border-bottom: 0px solid #ccc;margin-bottom: -15px;">
+        </ion-item>
+    </ion-list>
+    <ion-list>
+        <ion-item style="background-color: #f4f4f4;border-top: 1px solid #ccc;height: 25px;border-bottom: 1px solid #ccc;">
+            <ion-note item-left>
+                <span style="color: #5e5e5e;font-size: 24px;">${{item.variants[selectedIdx].price * qty}}</span>
+                <span style="color: #2d9a4d;"> In Stock</span>
+        
+            </ion-note>
+            <ion-note item-right style="color:#548eec;">
+                <button ion-button icon-only clear>
+                    <ion-icon style="color: #ff8585;" name="heart"></ion-icon>
+                </button>
+            </ion-note>
+        </ion-item>
+
+        <div style="text-align: center;padding: 10px;background: #f4f4f4;">
+        <button (click)="selectSize(i)" style="margin: 0 auto;background: #ccc;margin-right: 3px" ion-button medium *ngFor=" let sizeI of item.variants; let i=index; let isFirst = first" [ngClass]="{'active': selectedIdx == i}" >{{sizeI.size}} OZ</button>
+        </div>
+            </ion-list>
+<hr>
+    <p style="background:#fff;padding: 10px;color: #797979;margin-top: -20px;">{{item.descLong}}</p>
+</ion-content>
+<ion-footer>
+    <ion-toolbar style="padding: 0px;min-height: 0px;">
+        <ion-grid style="padding: 0px;">
+            <ion-row style="padding: 0px; background: #f4f4f4">
+                <ion-col style="padding: 0px;"> 
+                    <button class="footer-b1" ion-button (click)="decreaseQuanity()" full><ion-icon name="md-remove"></ion-icon></button>
+                </ion-col>
+                <ion-col style="padding: 0px;text-align: center;font-size: 14px"> 
+                    <button style="padding-left: 25px; padding-right: 25px" class="footer-b1" full>{{qty}}</button>
+                </ion-col>
+                <ion-col style="padding: 0px;"> 
+                    <button class="footer-b1" ion-button (click)="increaseQuanity()" full><ion-icon name="md-add"></ion-icon></button>
+                </ion-col>
+                <ion-col style="padding: 0px;" col-6>
+                    <button class="footer-b1" ion-button (click)="addToCart(item)" full><ion-icon style="padding-right:7px" name="cart"></ion-icon> + Add to Cart</button>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-toolbar>
+   
+</ion-footer>
